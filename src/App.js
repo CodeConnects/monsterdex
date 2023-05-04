@@ -15,8 +15,7 @@ class App extends Component {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => {
         return response.json();
-      })
-      .then((users) => {
+      }).then((users) => {
         this.setState({ monsters: users });
       });
   }
