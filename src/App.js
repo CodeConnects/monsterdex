@@ -12,14 +12,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    const pokeAPI = 'https://pokeapi.co/api/v2/pokemon/?limit=10&offset=0';
+
+    fetch(pokeAPI)
       .then((response) => {
         return response.json();
-      }).then((users) => {
-        this.setState({ monsters: users });
+      }).then((pokemon) => {
+        this.setState({ monsters: pokemon.results });
       });
   }
-
 
   render() {
     return (
