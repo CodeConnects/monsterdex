@@ -7,7 +7,7 @@ class App extends Component {
     super();
 
     this.state = {
-      monsters: [],
+      pokemon: [],
     };
   }
 
@@ -17,18 +17,18 @@ class App extends Component {
     fetch(pokeAPI)
       .then((response) => {
         return response.json();
-      }).then((pokemon) => {
-        this.setState({ monsters: pokemon.results });
+      }).then((results) => {
+        this.setState({ pokemon: results.results });
       });
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Monsterdexer</h1>
+        <h1>Pokedexer</h1>
         {
-          this.state.monsters.map((monster) => {
-            return <h3 key={monster.id}>{monster.name}</h3>;
+          this.state.pokemon.map((poke) => {
+            return <h3 key={poke.id}>{poke.name}</h3>;
           })
         }
       </div>
