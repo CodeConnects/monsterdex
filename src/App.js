@@ -28,6 +28,7 @@ class App extends Component {
         <h1>Pokedexer</h1>
         {
           this.state.pokemon.map((poke) => {
+            poke.name = poke.name[0].toUpperCase() + poke.name.slice(1);
             return <h3 key={poke.id}>{poke.name}</h3>;
           })
         }
