@@ -29,7 +29,7 @@ class App extends Component {
         <input className='search-box' type='search' placeholder='Search Pokemon' 
           onChange={(event) => {
             const filteredPokemon = this.state.pokemon.filter((poke) => {
-              return poke.name.includes(event.target.value.toLowerCase());
+              return poke.name.toLowerCase().includes(event.target.value.toLowerCase());
             });
             this.setState(() => { 
               return { pokemon: filteredPokemon };
