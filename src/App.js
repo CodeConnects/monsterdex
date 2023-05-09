@@ -8,6 +8,7 @@ class App extends Component {
 
     this.state = {
       pokemon: [],
+      searchField: '',
     };
   }
 
@@ -23,21 +24,26 @@ class App extends Component {
   }
 
   render() {
+
+    const filteredPokemon = this.state.pokemon.filter((poke) => {
+      return poke.name.toLowerCase().includes(this.state.searchField.toLowerCase());
+    });
+
     return (
       <div className="App">
         <h1>Pokedexer</h1>
         <input className='search-box' type='search' placeholder='Search Pokemon' 
           onChange={(event) => {
-            const filteredPokemon = this.state.pokemon.filter((poke) => {
-              return poke.name.toLowerCase().includes(event.target.value.toLowerCase());
-            });
+            
+            const searchField = event.target.value.toLowerCase();
+
             this.setState(() => { 
-              return { pokemon: filteredPokemon };
+              return { searchField };
             });
           }}
         />
         {
-          this.state.pokemon.map((poke) => {
+          filteredPokemon.map((poke) => {
             poke.name = poke.name[0].toUpperCase() + poke.name.slice(1);
             return <h3 key={poke.id}>{poke.name}</h3>;
           })
