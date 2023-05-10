@@ -23,6 +23,14 @@ class App extends Component {
       });
   }
 
+  onSearchChange = (event) => {
+    const searchField = event.target.value.toLowerCase();
+
+    this.setState(() => { 
+      return { searchField };
+    });
+  }
+
   render() {
 
     const filteredPokemon = this.state.pokemon.filter((poke) => {
@@ -33,14 +41,7 @@ class App extends Component {
       <div className="App">
         <h1>Pokedexer</h1>
         <input className='search-box' type='search' placeholder='Search Pokemon' 
-          onChange={(event) => {
-            
-            const searchField = event.target.value.toLowerCase();
-
-            this.setState(() => { 
-              return { searchField };
-            });
-          }}
+          onChange={ this.onSearchChange }
         />
         {
           filteredPokemon.map((poke) => {
