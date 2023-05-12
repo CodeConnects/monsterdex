@@ -33,15 +33,18 @@ class App extends Component {
 
   render() {
 
-    const filteredPokemon = this.state.pokemon.filter((poke) => {
-      return poke.name.toLowerCase().includes(this.state.searchField.toLowerCase());
+    const { pokemon, searchField } = this.state;
+    const { onSearchChange } = this;
+
+    const filteredPokemon = pokemon.filter((poke) => {
+      return poke.name.toLowerCase().includes(searchField.toLowerCase());
     });
 
     return (
       <div className="App">
         <h1>Pokedexer</h1>
         <input className='search-box' type='search' placeholder='Search Pokemon' 
-          onChange={ this.onSearchChange }
+          onChange={ onSearchChange }
         />
         {
           filteredPokemon.map((poke) => {
