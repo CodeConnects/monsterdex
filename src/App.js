@@ -1,6 +1,6 @@
 import { Component } from 'react';
-
 import CardList from './components/card-list/card-list.comp';
+import SearchBox from './components/search-box/search-box.comp';
 import './App.css';
 
 class App extends Component {
@@ -34,7 +34,7 @@ class App extends Component {
 
   render() {
 
-    const { pokemon, searchField } = this.state;
+    const { pokemon, searchField, className } = this.state;
     const { onSearchChange } = this;
 
     const filteredPokemon = pokemon.filter((poke) => {
@@ -44,10 +44,14 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Pokedexer</h1>
-        <input className='search-box' type='search' placeholder='Search Pokemon' 
-          onChange={ onSearchChange }
-        />
         
+        <SearchBox
+          className={ className }
+          type='search'
+          placeholder='Search Pokemon'
+          onChangeHandler={ onSearchChange }
+        />
+
         <CardList pokemon={ filteredPokemon } />
 
       </div>
