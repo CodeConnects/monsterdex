@@ -1,5 +1,6 @@
 import { Component } from 'react';
 
+import CardList from './components/card-list/card-list.comp';
 import './App.css';
 
 class App extends Component {
@@ -46,12 +47,9 @@ class App extends Component {
         <input className='search-box' type='search' placeholder='Search Pokemon' 
           onChange={ onSearchChange }
         />
-        {
-          filteredPokemon.map((poke) => {
-            poke.name = poke.name[0].toUpperCase() + poke.name.slice(1);
-            return <h3 key={poke.id}>{poke.name}</h3>;
-          })
-        }
+        
+        <CardList pokemon={ filteredPokemon } />
+
       </div>
     );
   }
