@@ -46,7 +46,7 @@ class App extends Component {
         <h1>Pokedexer</h1>
         
         <SearchBox
-          className='pokemon-search'
+          className={ className }
           type='search'
           placeholder='Search Pokemon'
           onChangeHandler={ onSearchChange }
