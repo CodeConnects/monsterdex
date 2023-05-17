@@ -8,7 +8,7 @@ class SearchBox extends Component {
       <div>
         <input 
           type='search'
-          className={ className }
+          className={ `search-box ${className}` }
           placeholder={ placeholder }
           onChange={ onChangeHandler }
         />
