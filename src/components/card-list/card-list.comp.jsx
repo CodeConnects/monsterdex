@@ -11,7 +11,7 @@ class CardList extends Component {
         {
           pokemon.map((poke) => {
             poke.name = poke.name[0].toUpperCase() + poke.name.slice(1);
-            return <h3 key={poke.id}>{poke.name}</h3>;
+            return <h3 key={poke.url}>{poke.name}</h3>;
           })
         }
       </div>
