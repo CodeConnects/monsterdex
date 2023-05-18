@@ -34,7 +34,7 @@ class App extends Component {
 
   render() {
 
-    const { pokemon, searchField, className } = this.state;
+    const { pokemon, searchField } = this.state;
     const { onSearchChange } = this;
 
     const filteredPokemon = pokemon.filter((poke) => {
@@ -46,7 +46,7 @@ class App extends Component {
         <h1>Pokedexer</h1>
         
         <SearchBox
-          className={ className }
+          className='pokemon-search'
           type='search'
           placeholder='Search Pokemon'
           onChangeHandler={ onSearchChange }
