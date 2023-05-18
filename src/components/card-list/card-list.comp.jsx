@@ -1,5 +1,7 @@
 import { Component } from "react";
 
+import './card-list.styles.scss';
+
 class CardList extends Component {
 
   render() {
