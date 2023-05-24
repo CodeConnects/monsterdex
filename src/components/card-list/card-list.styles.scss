@@ -11,5 +11,21 @@
     margin: 0 auto;
   }
 
-
+  .card-wrap {
+    padding: 22px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    border-radius: 8px;
+    background-color: #92fafa;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+  }
+  
+  .card-wrap:hover {
+    transform: scale(1.06);
+  }
 }
