@@ -1,10 +1,10 @@
-.card-wrap {
+.pokemon-card {
   img { 
     width: 200px;
     height: 200px;
     margin: 0 auto;
   }
-  
+
   padding: 22px;
   cursor: pointer;
   display: flex;
@@ -18,6 +18,6 @@
   transition: transform 0.25s ease-out;
 }
 
-.card-wrap:hover {
+.pokemon-card:hover {
   transform: scale(1.06);
 }
