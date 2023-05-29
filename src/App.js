@@ -1,62 +1,53 @@
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
+
 import CardList from './components/card-list/card-list.comp';
 import SearchBox from './components/search-box/search-box.comp';
 import './App.scss';
 
-class App extends Component {
-  constructor() {
-    super();
+const App = () => {
 
-    this.state = {
-      pokemon: [],
-      searchField: '',
-    };
-  }
+  const [searchField, setSearchField] = useState('');
+  const [pokemon, setPokemon] = useState([]);
+  const [filteredPokemon, setFilteredPokemon] = useState(pokemon);
 
-  componentDidMount() {
-    const pokeAPI = 'https://pokeapi.co/api/v2/pokemon/?limit=10&offset=0';
-
+  const pokeAPI = 'https://pokeapi.co/api/v2/pokemon/?limit=10&offset=0';
+  useEffect(() => {
     fetch(pokeAPI)
       .then((response) => {
         return response.json();
       }).then((results) => {
-        this.setState({ pokemon: results.results });
+        setPokemon(results.results);
       });
-  }
+  }, []);
 
-  onSearchChange = (event) => {
-    const searchField = event.target.value.toLowerCase();
-
-    this.setState(() => { 
-      return { searchField };
-    });
-  }
-
-  render() {
-
-    const { pokemon, searchField } = this.state;
-    const { onSearchChange } = this;
-
-    const filteredPokemon = pokemon.filter((poke) => {
+  useEffect(() => {
+    const freshFilteredPokemon = pokemon.filter((poke) => {
       return poke.name.toLowerCase().includes(searchField.toLowerCase());
     });
+    setFilteredPokemon(freshFilteredPokemon);
+  }, [pokemon, searchField]);
+  
 
-    return (
-      <div className="App">
-        <h1>Pokedexer</h1>
-        
-        <SearchBox
-          className='pokemon-search'
-          type='search'
-          placeholder='Search Pokemon'
-          onChangeHandler={ onSearchChange }
-        />
-
-        <CardList pokemon={ filteredPokemon } />
-
-      </div>
-    );
+  const onSearchChange = (event) => {
+    const searchFieldValue = event.target.value.toLowerCase();
+    setSearchField(searchFieldValue);
   }
+
+  return (
+    <div className="App">
+      <h1>Pokedexer</h1>
+      
+      <SearchBox
+        className='pokemon-search'
+        type='search'
+        placeholder='Search Pokemon'
+        onChangeHandler={ onSearchChange }
+      />
+
+      <CardList pokemon={ filteredPokemon } />
+
+    </div>
+  );
 }
 
 export default App;
