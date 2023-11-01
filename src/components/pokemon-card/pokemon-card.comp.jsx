@@ -12,7 +12,7 @@ const PokemonCard = ({ poke }) => {
         name={properName}
         src={imgSrc} 
       />
-      <h3>{properName}</h3>
+      <h3>{properName} <span className="pokeID">(#{pokeID})</span></h3>
     </div>
   );
 }
