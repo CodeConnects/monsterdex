@@ -39,19 +39,20 @@ const App = () => {
     <div className="App">
       <h1>Pokedexer</h1>
 
-      <div>
-        <p>Showing {offset + 1} - {Math.min(offset + Number(limit), totalPokemon)} of {totalPokemon} Pokemon</p>
-        <div>
-          <span>Per Page:</span>
+      <div className='pagination-wrap'>
+        <div className='pagination-item slide-up'>Showing {offset + 1} - {Math.min(offset + Number(limit), totalPokemon)} of {totalPokemon} Pokemon</div>
+        
+        <div className='pagination-item'>
           <select value={limit} onChange={handleLimitChange}>
             <option value={20}>20</option>
             <option value={40}>40</option>
             <option value={60}>60</option>
             <option value={80}>80</option>
           </select>
+          <span className='slide-up'>Per Page</span>
         </div>
 
-        <div>
+        <div className='pagination-item'>
           <button onClick={goToPreviousPage} disabled={offset === 0}>Previous</button>
           <button onClick={goToNextPage} disabled={(offset + limit) >= totalPokemon}>Next</button>
         </div>
