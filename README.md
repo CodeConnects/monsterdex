@@ -6,23 +6,36 @@ Displayed as image cards with pagination
 
 https://pokedex-beta-sage.vercel.app/
 
-------
+&nbsp;<br>
 
-## Available Scripts
+---------------- 
 
-In the project directory, you can run:
+## Installing locally
 
-### `yarn start`
+First clone the repo:
 
-Runs the app in the development mode.\
+```bash
+git clone https://github.com/CodeConnects/pokedex.git
+```
 
-The page will reload when you make changes.
+Then install dependencies:
 
-### `yarn test`
+```bash
+cd pokedex
+yarn install
+```
 
-Launches the test runner in the interactive watch mode.\
+## Running locally
 
-### `yarn build`
+To run the development server (auto-reloads as you edit code):
 
-Builds the app for production to the `build` folder.\
+```bash
+yarn start
+```
+
+The following builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+```bash
+yarn build
+```
