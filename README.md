@@ -1,6 +1,12 @@
 # Pokedex
 
-A searchable index of Pokemon
+View over 1000 different Pokemon
+
+Displayed as image cards with pagination
+
+https://pokedex-beta-sage.vercel.app/
+
+------
 
 ## Available Scripts
 
