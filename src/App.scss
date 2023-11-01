@@ -22,9 +22,11 @@ input {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: -10px;
   line-height: 24px;
-  position: relative;
+  position: fixed;
+  background: linear-gradient( to left, rgb(12, 49, 125) 0%, rgb(5, 175, 144) 100% );
+  width: 100%;
+  padding-top: 10px;
 }
 
 .pagination-item {
@@ -39,4 +41,9 @@ input {
 .slide-up {
   position: relative;
   top: -1px;
+}
+
+.main-title {
+  padding-top: 50px;
+  margin: 0px;
 }
