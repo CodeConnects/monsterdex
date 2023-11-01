@@ -7,12 +7,14 @@ const PokemonCard = ({ poke }) => {
   
   return (
     <div className='pokemon-card'>
-      <img 
-        alt={`Pokemon ${properName}`}
-        name={properName}
-        src={imgSrc} 
-      />
-      <h3>{properName} <span className="pokeID">(#{pokeID})</span></h3>
+        <div className='pokemon-card-inner'>
+        <img 
+          alt={`Pokemon ${properName}`}
+          name={properName}
+          src={imgSrc} 
+        />
+        <h3>{properName} <span className="pokeID">(#{pokeID})</span></h3>
+      </div>
     </div>
   );
 }
