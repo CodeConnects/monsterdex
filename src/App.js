@@ -37,7 +37,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Pokedexer</h1>
 
       <div className='pagination-wrap'>
         <div className='pagination-item slide-up'>Showing {offset + 1} - {Math.min(offset + Number(limit), totalPokemon)} of {totalPokemon} Pokemon</div>
@@ -57,6 +56,8 @@ const App = () => {
           <button onClick={goToNextPage} disabled={(offset + limit) >= totalPokemon}>Next</button>
         </div>
       </div>
+
+      <h1 className="main-title">Pokedexer</h1>
 
       <CardList pokemon={ pokemonList } />
 
